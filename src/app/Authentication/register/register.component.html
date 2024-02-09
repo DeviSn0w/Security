@@ -1,0 +1,130 @@
+<body class="authentication-bg">
+    <div class="position-absolute start-0 end-0 start-0 bottom-0 w-100 h-100">
+        <svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%' viewBox='0 0 800 800'>
+            <g fill-opacity='0.22'>
+                <circle style="fill: rgba(var(--ct-primary-rgb), 0.1);" cx='400' cy='400' r='600' />
+                <circle style="fill: rgba(var(--ct-primary-rgb), 0.2);" cx='400' cy='400' r='500' />
+                <circle style="fill: rgba(var(--ct-primary-rgb), 0.3);" cx='400' cy='400' r='300' />
+                <circle style="fill: rgba(var(--ct-primary-rgb), 0.4);" cx='400' cy='400' r='200' />
+                <circle style="fill: rgba(var(--ct-primary-rgb), 0.5);" cx='400' cy='400' r='100' />
+            </g>
+        </svg>
+    </div>
+
+    <div class="account-pages pt-2 pt-sm-5 pb-4 pb-sm-5 position-relative">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xxl-10 col-lg-12">
+                    <div class="card">
+                        <div class="card-header py-4 text-center bg-primary">
+                            <a href="index.html">
+                                <span><img src="assets/images/logo.png" alt="logo" height="22"></span>
+                            </a>
+                        </div>
+
+                        <div class="card-body p-4">
+                            <div class="text-center w-75 m-auto">
+                                <h4 class="text-dark-50 text-center mt-0 fw-bold">Free Sign Up</h4>
+                                <p class="text-muted mb-4">Don't have an account? Create your account, it takes less
+                                    than a minute </p>
+                            </div>
+                            <div *ngIf="showSuccessAlert" class="alert alert-success alert-dismissible text-bg-success border-0 fade show" role="alert">
+                                <button type="button" class="btn-close btn-close-white" (click)="dismissAlert()" aria-label="Close"></button>
+                                <strong>Success - </strong> Registration successful!
+                            </div>
+                            
+                            <div *ngIf="showErrorAlert" class="alert alert-danger alert-dismissible text-bg-danger border-0 fade show" role="alert">
+                                <button type="button" class="btn-close btn-close-white" (click)="dismissAlert()" aria-label="Close"></button>
+                                <strong>Error - </strong> Registration failed!
+                            </div>
+                            <form [formGroup]="registrationForm" (ngSubmit)="registerUser()">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="firstname" class="form-label">First Name</label>
+                                            <input formControlName="first_name" class="form-control" type="text" id="firstname"
+                                                placeholder="Enter your first name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="lastname" class="form-label">Last Name</label>
+                                            <input formControlName="last_name" class="form-control" type="text" id="lastname"
+                                                placeholder="Enter your last name">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="username" class="form-label">Username</label>
+                                            <input formControlName="username" class="form-control" type="text" id="username"
+                                                placeholder="Choose a username">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="emailaddress" class="form-label">Email address</label>
+                                            <input formControlName="email" class="form-control" type="email" id="emailaddress"
+                                                placeholder="Enter your email">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="password" class="form-label">Password</label>
+                                            <input formControlName="password" type="password" id="password" class="form-control"
+                                                placeholder="Enter your password">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="confirm_password" class="form-label">Confirm Password</label>
+                                            <input formControlName="confirmPassword" type="password" id="confirm_password"
+                                                class="form-control" placeholder="Confirm your password">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="phone_number" class="form-label">Phone Number</label>
+                                            <input formControlName="phone_number" class="form-control" type="tel" id="phone_number"
+                                                placeholder="Enter your phone number">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="department" class="form-label">Department</label>
+                                            <input formControlName="department" class="form-control" type="text" id="department"
+                                                placeholder="Enter your department">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label for="address" class="form-label">Address</label>
+                                            <input formControlName="address" class="form-control" type="text" id="address"
+                                                placeholder="Enter your address">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 text-center">
+                                    <button class="btn btn-primary" type="submit">Sign Up</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-12 text-center">
+                            <p class="text-muted">Already have account? <a routerLink="/Login"
+                                    class="text-muted ms-1"><b>Log In</b></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer footer-alt">
+        © 2024 SafeWork. All Rights Reserved.
+    </footer>
+</body>

@@ -1,0 +1,4 @@
+.table-responsive th,td {
+    text-align: center;
+    /* Center the content of <th> elements inside thead.table-light */
+}
